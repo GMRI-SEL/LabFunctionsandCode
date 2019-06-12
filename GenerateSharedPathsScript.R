@@ -11,6 +11,8 @@ enter_user_name_func<- function(){
   return(user.name)
 }
 
+user.name<- enter_user_name_func()
+
 shared.path<- function(os.use = os.use, group = c("RES", "Mills Lab"), folder = "Functions/"){
   # Details: This function creates paths to shared Data and Functions folders stored either inside the Mills Lab folder or outside the Mills Lab folder
   
@@ -29,8 +31,8 @@ shared.path<- function(os.use = os.use, group = c("RES", "Mills Lab"), folder = 
                       "Mills Lab" = paste("~/Box/Mills Lab/", folder, sep = ""))
   } else if(os.use == "windows"){
     path.out<- switch(group,
-                      "RES" = paste("C:/Users/", enter_user_name_func(), "/Box/", folder, sep = ""),
-                      "Mills Lab" = paste("C:/Users/", enter_user_name_func(), "/Box/Mills Lab/", folder, sep = ""))
+                      "RES" = paste("C:/Users/", user.name, "/Box/", folder, sep = ""),
+                      "Mills Lab" = paste("C:/Users/", user.name, "/Box/Mills Lab/", folder, sep = ""))
   } else {
     print("OS not recognized")
   }
