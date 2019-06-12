@@ -11,7 +11,12 @@ enter_user_name_func<- function(){
   return(user.name)
 }
 
-user.name<- enter_user_name_func()
+if(os.use == "windows"){
+  print("You should use a Mac so you don't have to worry about your user name")
+  user.name<- enter_user_name_func()
+} else {
+  print("Congratulations on choosing to use a Mac")
+}
 
 shared.path<- function(os.use = os.use, group = c("RES", "Mills Lab"), folder = "Functions/"){
   # Details: This function creates paths to shared Data and Functions folders stored either inside the Mills Lab folder or outside the Mills Lab folder
@@ -43,3 +48,5 @@ res.data.path<- shared.path(os.use = os.use, group = "RES", folder = "Data/")
 res.func.path<- shared.path(os.use = os.use, group = "RES", folder = "Functions/")
 lab.data.path<- shared.path(os.use = os.use, group = "Mills Lab", folder = "Data/")
 lab.func.path<- shared.path(os.use = os.use, group = "Mills Lab", folder = "Functions/")
+
+cat("You did it! You have created paths to RES and Mills Lab shared Data and Functions folders.\n", paste("The paths can be called directly using res.data.path, res.func.path, lab.data.path, lab.func.path. Go foRth and conqueR!", sep = ""))
