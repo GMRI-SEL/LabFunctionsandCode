@@ -24,7 +24,7 @@ enter_project_name_func<- function(){
   return(proj.name)
 }
 
-enter_project_name_func()
+proj.name<- enter_project_name_func()
 
 shared.path<- function(os.use = os.use, group = c("RES", "Mills Lab"), project = proj.name, folder = "Functions/"){
   # Details: This function creates paths to shared Data and Functions folders stored either inside the Mills Lab folder or outside the Mills Lab folder
