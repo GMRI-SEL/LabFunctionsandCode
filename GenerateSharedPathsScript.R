@@ -43,7 +43,7 @@ shared.path<- function(os.use = os.use, group = c("RES", "Mills Lab"), project =
                       "RES" = paste("~/Box/", folder, sep = ""),
                       "Mills Lab" = paste("~/Box/Mills Lab/", folder, sep = ""))
     if(!is.null(project)){
-          path.outB<- paste("~/Box/Mills Lab", project, "/", sep = "")
+          path.outB<- paste("~/Box/Mills Lab/", project, "/", sep = "")
       }
   } else if(os.use == "windows"){
     path.out<- switch(group,
@@ -58,10 +58,10 @@ shared.path<- function(os.use = os.use, group = c("RES", "Mills Lab"), project =
   return(path.out)
 }
 
-res.data.path<- shared.path(os.use = os.use, group = "RES", folder = "Data/")
-res.func.path<- shared.path(os.use = os.use, group = "RES", folder = "Functions/")
-lab.data.path<- shared.path(os.use = os.use, group = "Mills Lab", folder = "Data/")
-lab.func.path<- shared.path(os.use = os.use, group = "Mills Lab", folder = "Functions/")
-proj.path<- shared.path(os.use, project = proj.name)
+res.data.path<- shared.path(os.use = os.use, group = "RES", project = NULL, folder = "Data/")
+res.func.path<- shared.path(os.use = os.use, group = "RES", project = NULL, folder = "Functions/")
+lab.data.path<- shared.path(os.use = os.use, group = "Mills Lab", project = NULL, folder = "Data/")
+lab.func.path<- shared.path(os.use = os.use, group = "Mills Lab", project = NULL, folder = "Functions/")
+proj.path<- shared.path(os.use = os.use, group = NULL, project = proj.name, folder = NULL)
 
 cat("You did it! You have created paths to RES and Mills Lab shared Data and Functions folders and the project folder on Box.\n", paste("The paths can be called directly using res.data.path, res.func.path, lab.data.path, lab.func.path and proj.path. Go foRth and conqueR!", sep = ""))
