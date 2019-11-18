@@ -24,9 +24,7 @@ enter_project_name_func<- function(){
   return(proj.name)
 }
 
-proj.name<- enter_project_name_func()
-
-shared.path<- function(os.use = os.use, group = c("RES", "Mills Lab"), project = proj.name, folder = "Functions/"){
+shared.path<- function(os.use = os.use, group = c("RES", "Mills Lab"), project = enter_project_name_func(), folder = "Functions/"){
   # Details: This function creates paths to shared Data and Functions folders stored either inside the Mills Lab folder or outside the Mills Lab folder
   
   # Args:
@@ -62,6 +60,6 @@ res.data.path<- shared.path(os.use = os.use, group = "RES", project = NULL, fold
 res.func.path<- shared.path(os.use = os.use, group = "RES", project = NULL, folder = "Functions/")
 lab.data.path<- shared.path(os.use = os.use, group = "Mills Lab", project = NULL, folder = "Data/")
 lab.func.path<- shared.path(os.use = os.use, group = "Mills Lab", project = NULL, folder = "Functions/")
-proj.path<- shared.path(os.use = os.use, group = NULL, project = proj.name, folder = NULL)
+proj.path<- shared.path(os.use = os.use, group = NULL, project = enter_project_name_func(), folder = NULL)
 
 cat("You did it! You have created paths to RES and Mills Lab shared Data and Functions folders and the project folder on Box.\n", paste("The paths can be called directly using res.data.path, res.func.path, lab.data.path, lab.func.path and proj.path. Go foRth and conqueR!", sep = ""))
