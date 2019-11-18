@@ -42,7 +42,7 @@ shared.path<- function(os.use = os.use, group = c("RES", "Mills Lab"), project.n
                       "RES" = paste("~/Box/", folder, sep = ""),
                       "Mills Lab" = paste("~/Box/Mills Lab/", folder, sep = ""))
       } else {
-      path.out<- paste("~/Box/Mills Lab/", project.name, "/", sep = "")
+      path.out<- paste("~/Box/Mills Lab/Projects/", project.name, "/", sep = "")
     }
   } else if(os.use == "windows"){
     if(!is.null(group)){
@@ -50,7 +50,7 @@ shared.path<- function(os.use = os.use, group = c("RES", "Mills Lab"), project.n
                       "RES" = paste("C:/Users/", user.name, "/Box/", folder, sep = ""),
                       "Mills Lab" = paste("C:/Users/", user.name, "/Box/Mills Lab/", folder, sep = ""))
     } else {
-      path.out<- paste("C:/Users/", user.name, "/Box/Mills Lab/", project.name, "/", sep = "")
+      path.out<- paste("C:/Users/", user.name, "/Box/Mills Lab/Projects/", project.name, "/", sep = "")
     }
   } else {
     print("OS not recognized")
