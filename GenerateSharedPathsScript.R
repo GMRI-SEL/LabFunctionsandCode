@@ -39,7 +39,7 @@ shared.path<- function(os.use = os.use, group = c("RES Data", "Mills Lab"), proj
   if(os.use == "unix"){
     if(!is.null(group)){
         path.out<- switch(group,
-                      "RES" = paste("~/Box/", folder, sep = ""),
+                      "RES Data" = paste("~/Box/RES Data/", sep = ""),
                       "Mills Lab" = paste("~/Box/Mills Lab/", folder, sep = ""))
       } else {
       path.out<- paste("~/Box/Mills Lab/Projects/", project.name, "/", sep = "")
@@ -47,7 +47,7 @@ shared.path<- function(os.use = os.use, group = c("RES Data", "Mills Lab"), proj
   } else if(os.use == "windows"){
     if(!is.null(group)){
       path.out<- switch(group,
-                      "RES" = paste("C:/Users/", user.name, "/Box/", folder, sep = ""),
+                      "RES Data" = paste("C:/Users/", user.name, "/Box/Res Data/", sep = ""),
                       "Mills Lab" = paste("C:/Users/", user.name, "/Box/Mills Lab/", folder, sep = ""))
     } else {
       path.out<- paste("C:/Users/", user.name, "/Box/Mills Lab/Projects/", project.name, "/", sep = "")
