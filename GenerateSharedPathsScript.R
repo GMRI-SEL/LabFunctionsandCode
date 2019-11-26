@@ -24,7 +24,7 @@ enter_proj_name_func<- function(){
   return(proj.name)
 }
 
-shared.path<- function(os.use = os.use, group = c("RES", "Mills Lab"), project.name = enter_proj_name_func(), folder = "Functions/"){
+shared.path<- function(os.use = os.use, group = c("RES Data", "Mills Lab"), project.name = enter_proj_name_func(), folder = "Functions/"){
   # Details: This function creates paths to shared Data and Functions folders stored either inside the Mills Lab folder or outside the Mills Lab folder
   
   # Args:
@@ -60,8 +60,8 @@ shared.path<- function(os.use = os.use, group = c("RES", "Mills Lab"), project.n
 
   
 
-res.data.path<- shared.path(os.use = os.use, group = "RES", project.name = enter_proj_name_func(), folder = "Data/")
-res.func.path<- shared.path(os.use = os.use, group = "RES", project.name = enter_proj_name_func(), folder = "Functions/")
+res.data.path<- shared.path(os.use = os.use, group = "RES Data", project.name = enter_proj_name_func(), folder = "")
+res.func.path<- shared.path(os.use = os.use, group = "RES Data", project.name = enter_proj_name_func(), folder = "")
 lab.data.path<- shared.path(os.use = os.use, group = "Mills Lab", project.name = enter_proj_name_func(), folder = "Data/")
 lab.func.path<- shared.path(os.use = os.use, group = "Mills Lab", project.name = enter_proj_name_func(), folder = "Functions/")
 proj.path<- shared.path(os.use = os.use, group = NULL, project.name = enter_proj_name_func(), folder = NULL)
