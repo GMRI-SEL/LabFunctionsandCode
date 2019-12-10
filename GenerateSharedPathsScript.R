@@ -17,13 +17,7 @@ if(os.use == "windows"){
   print("MacOS user name not required")
 }
 
-# Project Name
-enter_proj_name_func<- function(){
-  proj.name<- readline(prompt= "Enter Box project folder name: ")
-  return(proj.name)
-}
-
-shared.path<- function(os.use = os.use, group = c("RES Data", "Mills Lab"), project.name = enter_proj_name_func(), folder = "Functions/"){
+shared.path<- function(os.use = os.use, group = c("RES Data", "Mills Lab"), folder = "Functions/"){
   # Details: This function creates paths to shared Data and Functions folders stored either inside the Mills Lab folder or outside the Mills Lab folder
   
   # Args:
@@ -41,7 +35,7 @@ shared.path<- function(os.use = os.use, group = c("RES Data", "Mills Lab"), proj
                       "RES Data" = paste("~/Box/RES Data/", sep = ""),
                       "Mills Lab" = paste("~/Box/Mills Lab/", folder, sep = ""))
       } else {
-      path.out<- paste("~/Box/Mills Lab/Projects/", project.name, "/", sep = "")
+      path.out<- paste("~/Box/Mills Lab/Projects/", sub('.*\\/', '', getwd()), "/", sep = "")
     }
   } else if(os.use == "windows"){
     if(!is.null(group)){
@@ -49,7 +43,7 @@ shared.path<- function(os.use = os.use, group = c("RES Data", "Mills Lab"), proj
                       "RES Data" = paste("C:/Users/", user.name, "/Box/Res Data/", sep = ""),
                       "Mills Lab" = paste("C:/Users/", user.name, "/Box/Mills Lab/", folder, sep = ""))
     } else {
-      path.out<- paste("C:/Users/", user.name, "/Box/Mills Lab/Projects/", project.name, "/", sep = "")
+      path.out<- paste("C:/Users/", user.name, "/Box/Mills Lab/Projects/", sub('.*\\/', '', getwd()), "/", sep = "")
     }
   } else {
     print("OS not recognized")
@@ -59,10 +53,10 @@ shared.path<- function(os.use = os.use, group = c("RES Data", "Mills Lab"), proj
 
   
 
-res.data.path<- shared.path(os.use = os.use, group = "RES Data", project.name = enter_proj_name_func(), folder = "")
-res.func.path<- shared.path(os.use = os.use, group = "RES Data", project.name = enter_proj_name_func(), folder = "")
-lab.data.path<- shared.path(os.use = os.use, group = "Mills Lab", project.name = enter_proj_name_func(), folder = "Data/")
-lab.func.path<- shared.path(os.use = os.use, group = "Mills Lab", project.name = enter_proj_name_func(), folder = "Functions/")
-proj.path<- shared.path(os.use = os.use, group = NULL, project.name = enter_proj_name_func(), folder = NULL)
+res.data.path<- shared.path(os.use = os.use, group = "RES Data", folder = "")
+res.func.path<- shared.path(os.use = os.use, group = "RES Data", folder = "")
+lab.data.path<- shared.path(os.use = os.use, group = "Mills Lab", folder = "Data/")
+lab.func.path<- shared.path(os.use = os.use, group = "Mills Lab", folder = "Functions/")
+proj.path<- shared.path(os.use = os.use, group = NULL, folder = NULL)
 
 cat("You did it! You have created paths to RES and Mills Lab shared Data and Functions folders and the project folder on Box.\n", paste("The paths can be called directly using res.data.path, res.func.path, lab.data.path, lab.func.path and proj.path. Go foRth and conqueR!", sep = ""))
