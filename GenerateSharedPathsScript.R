@@ -12,10 +12,9 @@ enter_user_name_func<- function(){
 }
 
 if(os.use == "windows"){
-  print("You should use a Mac so you don't have to worry about your user name")
   user.name<- enter_user_name_func()
 } else {
-  print("Congratulations on choosing to use a Mac")
+  print("MacOS user name not required")
 }
 
 # Project Name
